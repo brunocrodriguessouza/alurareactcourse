@@ -49,6 +49,7 @@ class App extends Component {
       url:'https://cdc-react.herokuapp.com/api/autores',
       contentType: 'application/json',
       dataType:'json',
+      type:'post',
       data: JSON.stringify({nome:this.state.nome, email:this.state.email, senha:this.state.senha}),
       success: function(resposta){
         this.setState({lista:resposta});
