@@ -34,12 +34,12 @@ class App extends Component {
         
           <div id="menu">
             <div className="pure-menu">
-              <a className="pure-menu-heading" href="#">Company</a>
+              <a className="pure-menu-heading" href="">Company</a>
         
               <ul className="pure-menu-list">
-                <li className="pure-menu-item"><a href="#" className="pure-menu-link">Home</a></li>
-                <li className="pure-menu-item"><a href="#" className="pure-menu-link">Autor</a></li>
-                <li className="pure-menu-item"><a href="#" className="pure-menu-link">Livro</a></li>
+                <li className="pure-menu-item"><a href="" className="pure-menu-link">Home</a></li>
+                <li className="pure-menu-item"><a href="" className="pure-menu-link">Autor</a></li>
+                <li className="pure-menu-item"><a href="" className="pure-menu-link">Livro</a></li>
               </ul>
             </div>
           </div>
@@ -83,7 +83,7 @@ class App extends Component {
                     {
                       this.state.lista.map(function(autor){
                         return (
-                          <tr>
+                          <tr  key={autor.id}>
                             <td>{autor.nome}</td>
                             <td>{autor.email}</td>
                           </tr>
