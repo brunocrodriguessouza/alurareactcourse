@@ -108,28 +108,38 @@ export default class AutorBox extends Component {
 
         super();
         this.state = { lista : []};
-      }
+    }
     
-      componentWillMount() {
+    componentWillMount() {
     
         $.ajax({
-          url:" https://cdc-react.herokuapp.com/api/autores",
-          dataType: 'json',
-          success:function(resposta){
+            url:'https://cdc-react.herokuapp.com/api/autores',
+            dataType: 'json',
+            success:function(resposta){
             this.setState({lista:resposta});
-          }.bind(this)
+            }.bind(this)
         });
 
-        PubSub.subscribe('atualizar-lista-autores', function(topico,novaLista){
+        PubSub.subscribe('atualizar-lista-livros', function(topico,novaLista){
             this.setState({lista:novaLista});
         }.bind(this));
-      }
+    }
+
+    destroy() {
+
+    }
 
     render() {
         return(
             <div>
-                <FormularioAutor />
-                <TabelaAutores lista={this.state.lista}/>
+                <div className="header">
+                    <h1>Cadastro de autores</h1>
+                </div>
+                
+                <div className="content" id="content">
+                    <FormularioAutor />
+                    <TabelaAutores lista={this.state.lista}/>
+                </div>
             </div>
         );
     }
